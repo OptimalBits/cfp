@@ -5,8 +5,8 @@ var expect = chai.expect;
 describe("PO3 File format", function(){
   
   describe('Post', function(){
-    it("should output a complete valid post", function(){
-      var output = post.outputPost({
+    it("should output a complete valid post for plusgiro recipient", function(){
+      var output = require('../')({
         id: "5568415292",
         account: "12345678",
         srcCurrency: "SEK",
@@ -19,7 +19,7 @@ describe("PO3 File format", function(){
         }
       },[{
         name: "Mad Cat AB",
-        account: "32546754",
+        account: "49573793",
         type: "plusgiro",
         amount: "50000",
         bookkeepingDate: new Date(),
@@ -31,9 +31,81 @@ describe("PO3 File format", function(){
           street: "Solvägen 2"
         }
       }])
+      // We need to be able to send this to some validation API
+      console.log(output)
     })
-  
-  
+    
+    it("should output a complete valid post for bankgiro recipient", function(){
+      var output = require('../')({
+        id: "5568415292",
+        account: "12345678",
+        srcCurrency: "SEK",
+        dstCurrency: "SEK",
+        name: "Optimal Bits Sweden AB",
+        address: {
+          city: "Lomma",
+          postcode: "23443",
+          street: "Skolskeppsgatan 26"
+        }
+      },[{
+        name: "Mad Cat AB",
+        account: "50501055",
+        type: "bankgiro",
+        amount: "50000",
+        bookkeepingDate: new Date(),
+        message: "Castmill Payment MARCH 2014",
+        ocr: "Fak. nr. #123122",
+        address: {
+          city: "Röstånga",
+          postcode: "72323",
+          street: "Solvägen 2"
+        }},
+        {
+          name: "Mad Cat AB",
+          account: "50501055",
+          type: "account",
+          amount: "50000",
+          bookkeepingDate: new Date(),
+          ocr: "Castmill nr. #123122",
+          address: {
+            city: "Röstånga",
+            postcode: "72323",
+            street: "Solvägen 2"
+          }}
+      ])
+      
+      console.log(output)
+    })
+    
+    it("should output a complete valid post for account recipient", function(){
+      var output = require('../')({
+        id: "5568415292",
+        account: "12345678",
+        srcCurrency: "SEK",
+        dstCurrency: "SEK",
+        name: "Optimal Bits Sweden AB",
+        address: {
+          city: "Lomma",
+          postcode: "23443",
+          street: "Skolskeppsgatan 26"
+        }
+      },[{
+        name: "Mad Cat AB",
+        account: "50501055",
+        type: "account",
+        amount: "50000",
+        bookkeepingDate: new Date(),
+        message: "Castmill Payment MARCH 2014",
+        ocr: "Fak. nr. #123122",
+        address: {
+          city: "Röstånga",
+          postcode: "72323",
+          street: "Solvägen 2"
+        }
+      }])
+      
+      console.log(output)
+    })
   })
 
   describe("Posts methods", function(){
