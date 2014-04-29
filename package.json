@@ -1,0 +1,31 @@
+{
+  "name": "cfp",
+  "version": "0.0.1",
+  "description": "Nordea Corporate File Payments",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/OptimalBits/cfp.git"
+  },
+  "keywords": [
+    "payment",
+    "nordea",
+    "corporate"
+  ],
+  "author": "Manuel Astudillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OptimalBits/cfp/issues"
+  },
+  "homepage": "https://github.com/OptimalBits/cfp",
+  "dependencies": {
+    "moment": "^2.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "chai": "^1.9.1"
+  }
+}
