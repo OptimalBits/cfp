@@ -4,7 +4,7 @@
   "description": "Nordea Corporate File Payments",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha test/* -R spec"
   },
   "repository": {
     "type": "git",
